@@ -48,27 +48,16 @@ function Board() {
     return null;
   }
 
-  function isBoardFull(squares) {
-    for (let i = 0; i < squares.length; i++) {
-      if (squares[i] == null) {
-        return false;
-      }
-    }
-    return true;
-  }
   const renderSquare = (index) => {
     return <Square value={state[index]} onClick={(e) => handleClick(index)} />;
   };
 
   let status;
   const win = Winner(state);
-  if (state === !null) {
-    status = win
-      ? ` Winner is ${win}`
-      : `Now : ${next ? "Player X" : "Player 0"}`;
-  } else if (state === null) {
-    status = `Draw`;
-  }
+
+  status = win
+    ? ` Winner is ${win}`
+    : `Now : ${next ? "Player X" : "Player 0"}`;
 
   // const box = values.map((numbers) => <h3>{renderSquare(0)}</h3>);
   return (
